@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tutorial — Inspection Report by FRNFEB</title>
+<link rel="icon" type="image/svg+xml" href="../assets/logo/logo-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<style>
+  .tut-section { margin-bottom: 26px; }
+  .tut-section__head { display:flex; align-items:center; gap:10px; padding-bottom:8px; margin-bottom:12px; border-bottom:2px solid var(--color-text); }
+  .tut-letter { width:24px; height:24px; border-radius:7px; background:var(--color-primary); color:#fff; font-size:11px; font-weight:800; display:grid; place-items:center; flex-shrink:0; }
+  .tut-section__head h2 { font-size:13.5px; }
+  .tut-list { padding-left: 20px; display:flex; flex-direction:column; gap:9px; }
+  .tut-list li { font-size:12.5px; color:var(--color-text); line-height:1.6; }
+  .tut-sublist { margin-top:6px; padding-left:18px; display:flex; flex-direction:column; gap:5px; }
+  .tut-sublist li { font-size:12px; color:var(--color-text-muted); line-height:1.55; list-style:disc; }
+  .tut-list-plain { padding-left:20px; display:flex; flex-direction:column; gap:6px; }
+  .tut-list-plain li { font-size:12.5px; color:var(--color-text); list-style:disc; }
+  .tut-list code { background:var(--color-surface-alt); border:1px solid var(--color-border); border-radius:4px; padding:1px 6px; font-family:var(--font-mono); font-size:11.5px; }
+  .tut-note {
+    display:flex; align-items:flex-start; gap:8px; margin-top:14px;
+    background: var(--color-primary-light); color: var(--color-primary-dark);
+    border-radius: 8px; padding: 10px 12px; font-size: 12px; line-height:1.55;
+  }
+</style>
+</head>
+<body>
+
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l4-7 3.5 6L14 6l4 6.5"/></svg>
+      </div>
+      <div class="sidebar__brand-text">
+        <strong>Maintenance Report</strong>
+        <span>Generator</span>
+      </div>
+    </div>
+
+    <nav class="sidebar__nav scrollbar-thin">
+      <div class="sidebar__section-label">Menu</div>
+      <a href="../index.html" class="sidebar__item">
+        <svg data-lucide="layout-dashboard"></svg>
+        <span class="sidebar__item-label">Dashboard</span>
+      </a>
+      <a href="inspection-report.html" class="sidebar__item">
+        <svg data-lucide="clipboard-list"></svg>
+        <span class="sidebar__item-label">Inspection Report</span>
+      </a>
+      <a href="tutorial.html" class="sidebar__item is-active">
+        <svg data-lucide="graduation-cap"></svg>
+        <span class="sidebar__item-label">Tutorial</span>
+      </a>
+    </nav>
+
+    <div class="sidebar__footer">
+      <button class="sidebar__collapse-btn" data-sidebar-collapse type="button">
+        <svg data-lucide="panel-left-close"></svg>
+        <span>Collapse sidebar</span>
+      </button>
+    </div>
+  </aside>
+  <div class="sidebar__backdrop" data-sidebar-backdrop></div>
+
+  <div class="app-main">
+    <header class="topbar">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <button class="topbar__menu-btn" data-sidebar-open aria-label="Buka menu">
+          <svg data-lucide="menu"></svg>
+        </button>
+        <div class="topbar__title">
+          <h1>Tutorial</h1>
+          <p>Panduan membuat report dengan cepat</p>
+        </div>
+      </div>
+      <div class="topbar__actions">
+        <div class="topbar__avatar">MF</div>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="page-head">
+        <div>
+          <div class="page-head__eyebrow">Rotary Maintenance Department</div>
+          <h1>Petunjuk Pengisian</h1>
+          <p>Diambil dari sheet TUTORIAL pada template resmi — dokumen acuan operator sebelum mengisi Inspection Report.</p>
+        </div>
+      </div>
+
+      <div class="tut-section">
+        <div class="tut-section__head"><span class="tut-letter">A</span><h2>Petunjuk Pengisian "Summary Inspection Report"</h2></div>
+        <ol class="tut-list">
+          <li>Area yang di-highlight kuning boleh diisi dengan tulisan free-text sesuai contoh.</li>
+          <li>Bagian yang biru harus diisi mengikuti drop down list.</li>
+          <li>Jika ada item yang tidak tercantum di list, mohon diinformasikan ke PIC Report per Plant (akan didiskusikan untuk penambahan list).</li>
+          <li>Jika perlu mencantumkan detail informasi lainnya, dapat diisi di bagian "Notes:".</li>
+          <li>Bagian <strong>PHENOMENA</strong> diisi dengan "Type of Equipment / Part of Equipment + Phenomena".</li>
+          <li>Bagian <strong>CONTENT</strong> diisi dengan "Part of Equipment / Detail of Part + Kind of Inspection or Maintenance Activity".</li>
+          <li>Bagian <strong>CAUSE</strong> diisi sesuai list "Direct Cause" dan "Root Cause".
+            <ul class="tut-sublist">
+              <li><em>Direct Cause</em> = kenapa "PHENOMENA" terjadi? (contoh: kenapa High Vibration &amp; Bearing Abnormal Sound → karena Bearing Damage (Oil Contamination), Rubber Coupling Damage).</li>
+              <li><em>Root Cause</em> = kenapa "Direct Cause" bisa terjadi? (contoh: kenapa Bearing Damage (Oil Contamination) → karena No Water Splasher Installed, Coupling Misalignment).</li>
+            </ul>
+          </li>
+          <li>Bagian <strong>Next Action</strong> diisi dengan follow up action yang perlu dilakukan di next overhaul (format harus sesuai panduan).</li>
+          <li>Bagian <strong>Counter Measure</strong> diisi dengan aksi yang telah dilakukan untuk mencegah "Root Cause" terjadi lagi (format harus sesuai panduan).</li>
+          <li>Bagian <strong>Recommendation</strong> diisi dengan ide improvement yang dapat dilakukan untuk meningkatkan kualitas mesin.</li>
+          <li>Bagian <strong>Result of Test Run</strong> diisi sesuai hasil test-run (lihat Lampiran).
+            <ul class="tut-sublist">
+              <li>Khusus bagian "Vibration Result", mengikuti standard common centrifugal pump. Untuk special equipment, silakan konfirmasi ke tim monitoring.</li>
+            </ul>
+          </li>
+          <li>Bagian <strong>Remarks</strong> diisi data full close (penting untuk analisa performa).
+            <ul class="tut-sublist"><li>Jika ada hal lain yang perlu diinformasikan, tulis di "Other Remarks".</li></ul>
+          </li>
+          <li>Bagian <strong>Replacement Parts</strong> diisi dengan part-part yang diganti, tuliskan detail spesifikasi dan/atau materialnya (semakin detail semakin baik).</li>
+          <li>Bagian <strong>Notes</strong> dapat digunakan untuk mencantumkan informasi lain.</li>
+          <li>Jangan lupa menuliskan nama penulis di bagian "Written" untuk approval report.</li>
+          <li>Report yang memerlukan <strong>Detail Inspection Report</strong> untuk Centrifugal Pump dapat diisi di sheet CPL Pump.</li>
+          <li>Report yang memerlukan <strong>Check Point List (CPL)</strong> equipment lain, dokumennya dapat diminta ke Staff terkait.</li>
+          <li>Lampirkan dokumentasi inspeksi di sheet Inspection Photograph.</li>
+        </ol>
+      </div>
+
+      <div class="tut-section">
+        <div class="tut-section__head"><span class="tut-letter">B</span><h2>Petunjuk Penyimpanan &amp; Alur Approval / Revision</h2></div>
+        <ol class="tut-list">
+          <li>Buka file "Inspection Report Online Template (Read Only)" di Box\TEMPORARY\000 Online Inspection Report (Trial).</li>
+          <li>Klik "File" kemudian "Save As", simpan file di folder masing-masing.</li>
+          <li>Isi Summary Inspection Report sesuai petunjuk di bagian A.</li>
+          <li>Jika sudah lengkap, klik "Ctrl + P" kemudian atur setting berikut:
+            <ul class="tut-sublist">
+              <li>Printer = "Microsoft Print to PDF"</li>
+              <li>Setting = "Print Entire Workbook"</li>
+              <li>Pages = 2-4 (default jika report lengkap); sesuaikan dengan kebutuhan</li>
+              <li>Lalu klik "PRINT"</li>
+            </ul>
+          </li>
+          <li>Berikan nama file sesuai format: <code>TAG.NO_TANGGAL-ACTION_PROBLEM_NAMA</code><br>Contoh: <code>PU-1502-B_20260220_ABNORMAL SOUND_RAMA</code></li>
+          <li>Simpan file di lokasi folder plant masing-masing.<br>Contoh (CA-Plant): Box\TEMPORARY\000 Online Inspection Report (Trial)\CA Plant\1. Report Teknisi (initial and Revised)</li>
+          <li>Report dari Teknisi akan di-check oleh Staff PIC per plant.
+            <ul class="tut-sublist">
+              <li>Jika Approved akan disimpan di folder "2. Approved by Staff"</li>
+              <li>Jika perlu revisi akan disimpan di folder "4. Need to be Revised"</li>
+            </ul>
+          </li>
+          <li>Staff bertanggung jawab melakukan follow-up ke Section Chief terkait report yang sudah "approved by staff".</li>
+          <li>Section Chief akan melakukan review final untuk report tersebut.
+            <ul class="tut-sublist">
+              <li>Jika Approved akan disimpan di folder "3. Approved by SC"</li>
+              <li>Jika perlu revisi akan disimpan di folder "4. Need to be Revised"</li>
+            </ul>
+          </li>
+          <li>Report yang sudah ada di folder "Approved by SC" akan dipindahkan oleh Admin ke ASC EDB.</li>
+        </ol>
+        <p class="tut-note"><svg data-lucide="info" style="width:13px;height:13px;"></svg>Langkah 1, 2, 4, dan 6 di atas mengacu ke alur Excel manual (Save As / Ctrl+P / simpan ke folder Box). Setelah Inspection Report by FRNFEB aktif, langkah-langkah tersebut digantikan oleh tombol <strong>Generate Excel &amp; PDF</strong> pada form — sisanya (alur approval Staff → Section Chief → EDB) tetap berlaku.</p>
+      </div>
+
+      <div class="tut-section">
+        <div class="tut-section__head"><span class="tut-letter">C</span><h2>Lampiran</h2></div>
+        <ul class="tut-list-plain">
+          <li>Vibration Severity Chart per ISO 10816-7.</li>
+          <li>Gunakan Category 1 untuk report kita.</li>
+        </ul>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>
