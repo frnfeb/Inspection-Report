@@ -1,0 +1,116 @@
+/* ==========================================================================
+   Responsive breakpoints
+   Desktop  : > 1180px  — sidebar expanded, form + preview side by side
+   Tablet   : 760–1180px — sidebar collapses to icons, preview stacks below
+   Mobile   : < 760px    — sidebar becomes drawer, wizard full screen
+   ========================================================================== */
+
+/* ---------------- Tablet ---------------- */
+@media (max-width: 1180px) {
+  .wizard-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-panel {
+    position: static;
+    max-height: none;
+  }
+
+  .preview-body { max-height: 520px; }
+
+  body:not(.sidebar-force-expanded) {
+    /* auto-collapse sidebar on tablet for more room */
+  }
+
+  .sidebar { width: var(--sidebar-width-collapsed); }
+  .sidebar__brand-text,
+  .sidebar__section-label,
+  .sidebar__item-label { opacity: 0; pointer-events: none; }
+  .app-main { margin-left: var(--sidebar-width-collapsed); }
+  .sidebar__collapse-btn span { display: none; }
+
+  body.sidebar-force-expanded .sidebar { width: var(--sidebar-width); }
+  body.sidebar-force-expanded .sidebar__brand-text,
+  body.sidebar-force-expanded .sidebar__section-label,
+  body.sidebar-force-expanded .sidebar__item-label { opacity: 1; pointer-events: auto; }
+  body.sidebar-force-expanded .app-main { margin-left: var(--sidebar-width); }
+
+  .dashboard-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .generate-columns { grid-template-columns: 1fr; }
+  .summary-strip { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---------------- Mobile ---------------- */
+@media (max-width: 760px) {
+  :root { --topbar-height: 60px; }
+
+  .sidebar {
+    left: calc(-1 * var(--sidebar-width));
+    width: var(--sidebar-width);
+    box-shadow: var(--shadow-lg);
+    transition: left var(--dur-base) var(--ease-standard);
+  }
+
+  body.sidebar-open .sidebar { left: 0; }
+  body.sidebar-open .sidebar__brand-text,
+  body.sidebar-open .sidebar__section-label,
+  body.sidebar-open .sidebar__item-label { opacity: 1; pointer-events: auto; }
+
+  body.sidebar-open .sidebar__backdrop { display: block; }
+
+  .app-main { margin-left: 0 !important; }
+
+  .topbar { padding: 0 var(--space-4); }
+  .topbar__menu-btn { display: grid; place-items: center; }
+  .topbar__search { display: none; }
+
+  .page { padding: var(--space-4); }
+  .page-head { flex-direction: column; align-items: flex-start; }
+
+  .dashboard-grid { grid-template-columns: 1fr !important; }
+  .summary-strip { grid-template-columns: repeat(2, 1fr); }
+
+  /* Wizard becomes full screen */
+  .wizard-page { padding: var(--space-4) var(--space-4) 0; }
+
+  .wizard-head h1 { font-size: 17px; }
+
+  .step-rail { padding: var(--space-4) var(--space-3) var(--space-5); }
+  .step-rail__node { width: 68px; }
+  .step-rail__label { font-size: 10px; }
+  .step-rail__sub { display: none; }
+  .step-rail__circle { width: 34px; height: 34px; }
+  .step-rail__connector { top: -19px; }
+
+  .form-panel { border-radius: var(--radius-md); min-height: 0; }
+  .form-step { padding: var(--space-5); }
+  .form-step__foot { padding: var(--space-4); flex-wrap: wrap; }
+
+  .form-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+
+  .card-check-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .generate-columns { grid-template-columns: 1fr; gap: var(--space-4); }
+  .summary-strip { grid-template-columns: repeat(2, 1fr); }
+
+  /* Preview moves below the form and becomes toggleable */
+  .preview-panel {
+    border-radius: var(--radius-md);
+  }
+
+  .preview-toggle-btn { display: flex; }
+
+  .pdf-sheet { font-size: 9px; }
+
+  .toast-stack { left: var(--space-4); right: var(--space-4); width: auto; bottom: 84px; }
+
+  .loading-card { padding: var(--space-6); margin: 0 var(--space-5); }
+}
+
+@media (max-width: 420px) {
+  .step-rail__sub { display: none; }
+  .step-rail__node { width: 58px; }
+  .step-rail__label { font-size: 9.5px; }
+  .card-check-grid { grid-template-columns: 1fr 1fr; }
+  .upload-grid { grid-template-columns: repeat(3, 1fr); }
+}
